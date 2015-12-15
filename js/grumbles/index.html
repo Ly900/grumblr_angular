@@ -1,1 +1,23 @@
 <h2>I'm the Grumbles index!</h2>
+
+<p>
+  <a href="#" ng-click="grumblrViewModel.toggleForm()">New Grumble</a>
+</p>
+
+<form ng-show="GrumbleIndexViewModel.formIsVisible" ng-submit="grumblrViewModel.create()">
+
+    <label for="name">Title:</label>
+    <input type="text" name="title" ng-model="grumblrViewModel.title"/></br>
+
+    <label for="name">Author Name:</label>
+    <input type="text" name="author_name" ng-model="grumblrViewModel.author_name"/></br>
+
+    <label for="name">Content:</label>
+    <input type="text" name="content" ng-model="grumblrViewModel.content"/></br>
+
+    <label for="name">Photo Url:</label>
+    <input type="text" name="photo_url" ng-model="grumblrViewModel.photo_url"/></br>
+
+    <input type="submit"/>
+
+  </form>
