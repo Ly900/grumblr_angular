@@ -42,6 +42,13 @@
           photo_url: "https://img1.beachbodyimages.com/beachbody/image/upload/bbweb/p90x3/p90x3-v2-video-thumb.jpg"
         }
       ];
-    this.formIsVisible = true;
+    this.formIsVisible = false
+    this.toggleForm = function(){
+      if(this.formIsVisible){
+        this.formIsVisible = false;
+      } else {
+        this.formIsVisible = true;
+      }
+}; // ends toggleForm function;
   }
 })();

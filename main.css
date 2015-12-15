@@ -1,0 +1,18 @@
+html, body, head, img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #D3D3D3;
+}
+
+img {
+  max-width: 50%;
+}
+
+div.grumble {
+  background-color: #fff;
+}

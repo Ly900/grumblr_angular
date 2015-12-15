@@ -1,23 +1,54 @@
 <h2>I'm the Grumbles index!</h2>
 
 <p>
-  <a href="#" ng-click="grumblrViewModel.toggleForm()">New Grumble</a>
+  <a href="#" ng-click="GrumbleIndexViewModel.toggleForm()">New Grumble</a>
 </p>
 
-<form ng-show="GrumbleIndexViewModel.formIsVisible" ng-submit="grumblrViewModel.create()">
+<form ng-show="GrumbleIndexViewModel.formIsVisible" ng-submit="GrumbleIndexViewModel.create()">
 
     <label for="name">Title:</label>
-    <input type="text" name="title" ng-model="grumblrViewModel.title"/></br>
+    <input type="text" name="title" ng-model="GrumbleIndexViewModel.title"/></br>
 
     <label for="name">Author Name:</label>
-    <input type="text" name="author_name" ng-model="grumblrViewModel.author_name"/></br>
+    <input type="text" name="author_name" ng-model="GrumbleIndexViewModel.author_name"/></br>
 
     <label for="name">Content:</label>
-    <input type="text" name="content" ng-model="grumblrViewModel.content"/></br>
+    <input type="text" name="content" ng-model="GrumbleIndexViewModel.content"/></br>
 
     <label for="name">Photo Url:</label>
-    <input type="text" name="photo_url" ng-model="grumblrViewModel.photo_url"/></br>
+    <input type="text" name="photo_url" ng-model="GrumbleIndexViewModel.photo_url"/></br>
 
     <input type="submit"/>
 
-  </form>
+</form>
+
+<!-- Repeated grumble div starts below -->
+  <div class="grumble" ng-repeat="grumble in GrumbleIndexViewModel.grumbles">
+    <p>{{$index + 1}}.<strong>Title:</strong> {{grumble.title}} </p>
+    <p><strong>Author:</strong> {{grumble.author_name}} </p>
+    <p><strong>Grumble:</strong> {{grumble.content}} </p>
+    <p><img ng-src="{{grumble.photo_url}}"/></p>
+
+    <button ng-click="editTodo = !editTodo; GrumbleIndexViewModel.edit($index)">Edit Grumble</button>
+
+    <!-- Below is form to edit grumble -->
+    <form ng-show="editTodo" ng-submit="GrumbleIndexViewModel.edit()">
+
+      <label for="name">Title:</label>
+      <input type="text" name="title" ng-model="GrumbleIndexViewModel.editableContent.title"/></br>
+
+      <label for="name">Author Name:</label>
+      <input type="text" name="author_name" ng-model="GrumbleIndexViewModel.editableContent.author_name"/></br>
+
+      <label for="name">Content:</label>
+      <input type="text" name="content" ng-model="GrumbleIndexViewModel.editableContent.content"/></br>
+
+      <label for="name">Photo Url:</label>
+      <input type="text" name="photo_url" ng-model="GrumbleIndexViewModel.editableContent.photo_url"/></br>
+
+      <button ng-click="GrumbleIndexViewModel.update($index, editableContent); editTodo = !editTodo">Save</button>
+      <button ng-click="GrumbleIndexViewModel.delete($index)">Delete</button>
+
+    </form> <!-- Form to edit grumble ends -->
+
+  </div> <!-- ends grumblr repeat-->
