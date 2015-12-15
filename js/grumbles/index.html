@@ -23,15 +23,19 @@
 </form>
 
 <!-- Repeated grumble div starts below -->
-  <div class="grumble" ng-repeat="grumble in GrumbleIndexViewModel.grumbles">
-    <p>{{$index + 1}}.<strong>Title:</strong> {{grumble.title}} </p>
+  <div class="grumble" data-ng-repeat="grumble in GrumbleIndexViewModel.grumbles">
+    <p>{{$index + 1}}.<strong>Title:</strong>
+      <a data-ui-sref="grumbleShow({id: $index})">{{grumble.title}}
+      </a>
+    </p>
     <p><strong>Author:</strong> {{grumble.author_name}} </p>
     <p><strong>Grumble:</strong> {{grumble.content}} </p>
     <p><img ng-src="{{grumble.photo_url}}"/></p>
 
+<!-- Link to edit grumble -->
     <button ng-click="editTodo = !editTodo; GrumbleIndexViewModel.edit($index)">Edit Grumble</button>
 
-    <!-- Below is form to edit grumble -->
+<!-- Below is form to edit grumble -->
     <form ng-show="editTodo" ng-submit="GrumbleIndexViewModel.edit()">
 
       <label for="name">Title:</label>

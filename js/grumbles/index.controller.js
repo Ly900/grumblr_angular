@@ -8,9 +8,8 @@
   ]);
 
   function GrumbleIndexControllerFunction(){
-    console.log("I'm in the controller!");
-
-    this.grumbles = [
+    console.log("I'm in the index controller!");
+      this.grumbles = [
         {
           title: "Cat",
           author_name: "Abby Abberson",
@@ -49,6 +48,6 @@
       } else {
         this.formIsVisible = true;
       }
-}; // ends toggleForm function;
+    }; // ends toggleForm function;
   }
 })();
