@@ -8,6 +8,7 @@
     GrumbleShowControllerFunction
   ]);
   function GrumbleShowControllerFunction($stateParams){
+    console.log("I'm in the show controller!");
     this.grumbles = [
       {
         title: "Cat",
@@ -40,6 +41,7 @@
         photo_url: "https://img1.beachbodyimages.com/beachbody/image/upload/bbweb/p90x3/p90x3-v2-video-thumb.jpg"
       }
     ];
-        this.grumbles[$stateParams.id] = grumble;
+    console.log(this.grumbles[$stateParams.id]);
+    this.grumble = this.grumbles[$stateParams.id];
   };
 })();

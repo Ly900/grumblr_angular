@@ -1,1 +1,21 @@
-<h2>{{GrumbleShowViewModel.grumble}}</h2>
+<p>
+  <strong>
+    Title:
+  </strong>
+  {{GrumbleShowViewModel.grumble.title}}
+</p>
+<p>
+  <strong>
+    Author:
+  </strong>
+  {{GrumbleShowViewModel.grumble.author_name}}
+</p>
+<p>
+  <strong>
+    Grumble:
+  </strong>
+  {{GrumbleShowViewModel.grumble.content}}
+</p>
+<p>
+  <img ng-src="{{GrumbleShowViewModel.grumble.photo_url}}"/>
+</p>
